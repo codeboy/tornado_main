@@ -1,0 +1,3 @@
+# Choose your databses adapter
+psycopg2
+#MySQL-python
