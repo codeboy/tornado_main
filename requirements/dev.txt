@@ -10,10 +10,10 @@ Fabric
 #Sphinx
 
 # Testing
-nose
-mock
+#nose
+#mock
 
 #-e git://github.com/jbalogh/test-utils.git#egg=test-utils
 #test-utils
-coverage
-pylint
+#coverage
+#pylint

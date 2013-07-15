@@ -13,7 +13,7 @@ import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.settings")
 
 
-class HelloHandler(tornado.web.RequestHandler):
+class BaseHandler(tornado.web.RequestHandler):
     def get(self):
         self.write('Hello from tornado')
 
@@ -23,7 +23,7 @@ def main():
         django.core.handlers.wsgi.WSGIHandler())
     tornado_app = tornado.web.Application(
         [
-            (r'/', HelloHandler),
+            (r'/', BaseHandler),
             ('.*', tornado.web.FallbackHandler, dict(fallback=wsgi_app)),
         ])
     server = tornado.httpserver.HTTPServer(tornado_app)

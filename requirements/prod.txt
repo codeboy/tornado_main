@@ -4,26 +4,25 @@
 # Django stuff
 Django>=1.5
 
-# Templates
-Markdown
+
 
 # Security
-bleach
-django-session-csrf
+#bleach
+#django-session-csrf
 #cef
 
 # Testing
-django-nose
+#django-nose
 pep8
 pytest-pep8
-django-test-pep8
+#django-test-pep8
 
 # Logging
 #raven # use just for centry
 
 # Celery: Message queue
-celery
-django-celery
+#celery
+#django-celery
 
 # L10n/i18n
 Babel
@@ -33,32 +32,29 @@ Babel
 python-memcached
 
 # Admin
-django-debug-toolbar
-# There are useful panels for debug-toolbar, but have not quite been updated yet for 1.4
-#-e git://github.com/playfire/django-debug-toolbar-user-panel#egg=django_debug_toolbar_user_panel-dev
-#-e git://github.com/ross/memcache-debug-panel#egg=memcache_toolbar-dev
+#django-debug-toolbar
 
 # Migrations
-South
+#South
 
 # Various tidbits
 commonware
 #nuggets
-django-treebeard
+#django-treebeard
 
 # Pagination
-django-pagination
+#django-pagination
 
-django-taggit
-django-crispy-forms
-django-widget-tweaks
-django-braces
+#django-taggit
+#django-crispy-forms
+#django-widget-tweaks
+#django-braces
 
 ## CSS \JS
-beautifulsoup
+#beautifulsoup
 
 #compress css\js
-django-compressor
+#django-compressor
 
 
 # for requests like curl
@@ -67,13 +63,13 @@ requests
 # admin documentation
 docutils
 
-kombu
+#kombu
 
 # django_rq
 simplejson
 charade
 
 #test
-coverage>=3.0
-webtest
-django-webtest
+#coverage>=3.0
+#webtest
+#django-webtest
