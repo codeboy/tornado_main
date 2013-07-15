@@ -7,7 +7,8 @@ import tornado.ioloop
 import tornado.web
 import tornado.wsgi
 
-define('port', type=int, default=8080)
+# define('port', type=int, default=8080)
+define('port', type=int, default=80)
 
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.settings")

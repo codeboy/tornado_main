@@ -55,7 +55,8 @@ test_db/
 .project
 .pydevproject
 
-.settings/
+#.settings/
+.logs/
 
 media/*
 static/*
