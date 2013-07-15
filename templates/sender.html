@@ -1,0 +1,20 @@
+{% extends "layouts/base.html" %}
+
+{% block html-head%}
+    <title>Peader</title>
+{% end %}
+
+{% block content %}
+<div>
+    Send sms
+</div>
+<div>
+    <form action="/send-sms/" method="POST">
+        input number <input name="number" type="text" /><br/>
+        input message <input name="message" type="text" /><br/>
+
+        <input type="submit" value="send" />
+    </form>
+    {% if globals().get('status') %}{{ status }}{% end %}
+</div>
+{% end %}

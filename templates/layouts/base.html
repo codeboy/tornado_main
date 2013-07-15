@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+{% block html-head %}
+
+{% end %}
+
+</head>
+
+<body>
+    <div id="base">
+
+        <div id="main-head">
+
+             {% block header %}{% end %}
+
+        </div>
+
+        <div id="main-content">
+            {% block content %} {% end %}
+
+
+        </div>
+        <div style="clear: left;"> </div>
+
+
+        {% block footer %} {% end %}
+
+    </div>
+
+
+</body>
+</html>

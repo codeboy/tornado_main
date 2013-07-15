@@ -60,3 +60,5 @@ test_db/
 
 media/*
 static/*
+
+tornado_settings_local.py

@@ -7,16 +7,18 @@ import tornado.ioloop
 import tornado.web
 import tornado.wsgi
 
-# define('port', type=int, default=8080)
-define('port', type=int, default=80)
-
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.settings")
 
+import tornado_settings as TS
+define('port', type=int, default=8080)
+# define('port', type=int, default=TS.PORT)
 
-class BaseHandler(tornado.web.RequestHandler):
-    def get(self):
-        self.write('Hello from tornado')
+from tornado_apps import (
+    BaseHandler,
+    HomeHandler,
+    SenderHandler,
+)
 
 
 def main():
@@ -24,9 +26,10 @@ def main():
         django.core.handlers.wsgi.WSGIHandler())
     tornado_app = tornado.web.Application(
         [
-            (r'/', BaseHandler),
+            (r'/', HomeHandler.HomeHandler),
+            (r'/send-sms/', SenderHandler.SenderHandler),
             ('.*', tornado.web.FallbackHandler, dict(fallback=wsgi_app)),
-        ])
+        ], template_path=TS.TEMPLATE_PATH, debug = TS.DEBUG)
     server = tornado.httpserver.HTTPServer(tornado_app)
     server.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()
