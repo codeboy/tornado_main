@@ -20,7 +20,7 @@ class BaseHandler(tornado.web.RequestHandler):
 
     def get(self):
         """
-        if in inherit class not define get show 404
+        if in inherit class not define GET show 404
 
         если в дочернем классе не определён метод get покажем 404 страницу
         """
@@ -31,8 +31,8 @@ class BaseHandler(tornado.web.RequestHandler):
     def _get_safe_argument(self, name):
         """
         т.к. работа с POST данными в торнадо не удобная приходится немого повозиться
-        родной get_argument сразу возвращает 404, а это не удобно
-        приходится брать get_arguments который возвращяет словарь
+        родной get_argument сразу возвращает 404, а это не удобно,
+        приходится брать get_arguments который возвращяет словарь.
         если нам вернули несоклько переменных, то мы отдаём последнюю
         """
         arg = self.get_arguments(name)
