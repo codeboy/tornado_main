@@ -12,7 +12,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.settings")
 
 import tornado_settings as TS
 #define('port', type=int, default=8080)
- define('port', type=int, default=TS.PORT)
+define('port', type=int, default=TS.PORT)
 
 from tornado_apps import (
     BaseHandler,
