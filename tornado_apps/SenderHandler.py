@@ -2,6 +2,7 @@
 import requests
 import time
 import hashlib
+import pickle
 import datetime
 from tornado.escape import json_decode
 
@@ -39,8 +40,8 @@ class SenderHandler(BaseHandler):
             'text': message,
             'user' : TSL.USER,
             'password' : password,
-            'from' : 'codeboy',
-            'date' : time.time()
+            'from' : 'codeboy.ru',
+            # 'date' : time.time()
         })
         params_dict2 = dict({
             'user' : TSL.USER,
@@ -57,3 +58,5 @@ class SenderHandler(BaseHandler):
         context['status'] = 'code: %s | status: %s' % (r.status_code, r.text)
 
         self.render('sender.html', **context)
+
+
