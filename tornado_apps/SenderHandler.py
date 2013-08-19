@@ -8,9 +8,13 @@ from tornado.escape import json_decode
 from django.utils.http import urlencode
 
 from tornado_apps.BaseHandler import BaseHandler
-import tornado_settings_local as TSL
+import tornado_settings.t_settings_local as TSL
+
 
 class SenderHandler(BaseHandler):
+    """
+    отправка смс
+    """
 
     def get(self):
         context = self.context

@@ -6,5 +6,5 @@ from django_apps.dj_site.views import *
 
 
 urlpatterns = patterns('django_apps.dj_site.views',
-    url(r'^hello-django$', 'hello', name='hello'),
+    url(r'/hello-django$', 'hello', name='hello'),
 )

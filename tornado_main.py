@@ -8,11 +8,11 @@ import tornado.web
 import tornado.wsgi
 
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_settings.settings")
 
-import tornado_settings as TS
-#define('port', type=int, default=8080)
-define('port', type=int, default=TS.PORT)
+import tornado_settings.t_settings as TS
+define('port', type=int, default=8000)
+# define('port', type=int, default=TS.PORT)
 
 from tornado_apps import (
     BaseHandler,
@@ -22,14 +22,26 @@ from tornado_apps import (
 
 
 def main():
-    wsgi_app = tornado.wsgi.WSGIContainer(
-        django.core.handlers.wsgi.WSGIHandler())
-    tornado_app = tornado.web.Application(
-        [
-            (r'/', HomeHandler.HomeHandler),
-            (r'/send-sms/', SenderHandler.SenderHandler),
-            ('.*', tornado.web.FallbackHandler, dict(fallback=wsgi_app)),
-        ], template_path=TS.TEMPLATE_PATH, debug = TS.DEBUG)
+    wsgi_app = tornado.wsgi.WSGIContainer(django.core.handlers.wsgi.WSGIHandler())
+
+    handlers = [
+        (r"/static/(.*)", tornado.web.StaticFileHandler, {"path": TS.STATIC_PATH}),
+
+        (r'/', HomeHandler.HomeHandler),
+
+        (r'/send-sms/', SenderHandler.SenderHandler),
+        ('/dj/.*', tornado.web.FallbackHandler, dict(fallback=wsgi_app)),
+    ]
+
+    settings = {
+        'template_path' : TS.TEMPLATE_PATH,
+        'debug' : TS.DEBUG,
+        'static_path': TS.STATIC_PATH,
+        'st': TS.STATIC_PATH,
+    }
+
+    tornado_app = tornado.web.Application(handlers, **settings)
+
     server = tornado.httpserver.HTTPServer(tornado_app)
     server.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()
