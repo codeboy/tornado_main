@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 
 from django.conf.urls import url, patterns
 from django.views.generic.base import TemplateView

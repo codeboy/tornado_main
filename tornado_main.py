@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 
 from tornado.options import options, define, parse_command_line
 import django.core.handlers.wsgi
@@ -48,3 +48,19 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+
+aaa = '''
+class Application(tornado.web.Application):
+    def __init__(self):
+        handlers = [
+            (r"/users", UsersHandler),
+        ]
+        settings = dict(
+            cookie_secret="some_long_secret_and_other_settins"
+        )
+        tornado.web.Application.__init__(self, handlers, **settings)
+        # Have one global connection.
+        self.db = scoped_session(sessionmaker(bind=engine))
+'''

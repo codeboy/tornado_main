@@ -7,16 +7,18 @@
 
 
 {% block header %}
-    <img src="{{ static_url("img/test.jpg") }}" width="150" >
-    <hr/>
 {% end %}
 
 
 {% block content %}
 <div>
-    This is <a href="http://www.tornadoweb.org/">Tornado</a> web server with <a href="www.djangoproject.com">Django</a> on it.
+    <!--This is <a href="http://www.tornadoweb.org/">Tornado</a> web server with <a href="www.djangoproject.com">Django</a> on it.-->
+    {% for i in list %}
+        {{ i.name }}
+    {% end %}
 </div>
+
 <div>
-    Status - {% if globals().get('status') %}{{ status }}{% end %}
+    {% if globals().get('status') %}Status - {{ status }}{% end %}
 </div>
 {% end %}

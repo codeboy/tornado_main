@@ -2,6 +2,9 @@
 
 import tornado.web
 from exeption_util import MyDefaultException
+from tornado.web import asynchronous
+from tornado import gen
+from tornado import httpclient
 
 
 class BaseHandler(tornado.web.RequestHandler):
@@ -14,9 +17,7 @@ class BaseHandler(tornado.web.RequestHandler):
     context = dict()
 
     def initialize(self):
-        self.context = ''
         self.context = dict()
-
 
     def get(self):
         """
@@ -26,6 +27,23 @@ class BaseHandler(tornado.web.RequestHandler):
         """
         self.set_status(404)
         self.write('{"status":"error","msg":"Page not found"}')
+
+
+
+    ###   for testing purpose   ###
+    @asynchronous
+    @gen.coroutine
+    def get_async(self):
+        req = httpclient.HTTPRequest('ya.ru', method='GET')
+
+        client = tornado.httpclient.AsyncHTTPClient()
+        response = yield gen.Task(client.fetch, req)
+
+        ### do something with the response ###
+        # context = self.context
+        # self.render('index.html', **context)
+
+        self.finish()
 
 
     def _get_safe_argument(self, name):

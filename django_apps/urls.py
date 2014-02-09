@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 
 from django.conf.urls import patterns, include, url
 
@@ -9,9 +9,6 @@ admin.autodiscover()
 urlpatterns = patterns('',
     (r'', include('django_apps.dj_site.urls', namespace='site')),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
     url(r'/admin/', include(admin.site.urls)),
 )
