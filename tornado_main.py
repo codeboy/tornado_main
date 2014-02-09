@@ -22,6 +22,8 @@ from tornado_apps import (
 
 
 def main():
+    tornado.options.define('debug', default=False)
+
     wsgi_app = tornado.wsgi.WSGIContainer(django.core.handlers.wsgi.WSGIHandler())
 
     handlers = [
