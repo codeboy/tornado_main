@@ -5,6 +5,7 @@ from tornado_apps import (
     BaseHandler,
     HomeHandler,
     SenderHandler,
+    player,
 )
 
 import tornado_settings.t_settings as TS
@@ -16,5 +17,6 @@ ROUTES = [
 
     (r'/', HomeHandler.HomeHandler),
 
-    (r'/send-sms/', SenderHandler.SenderHandler),
+    (r'/send-sms', SenderHandler.SenderHandler),
+    (r'/player', player.PlayerHandler),
 ]

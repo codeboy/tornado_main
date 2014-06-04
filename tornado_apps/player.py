@@ -5,9 +5,10 @@ from tornado_apps.BaseDjangoHandler import DjangoBaseHandler
 from django_apps.dj_site.models import TestModel
 
 
-class HomeHandler(DjangoBaseHandler):
+class PlayerHandler(DjangoBaseHandler):
 
     def get(self):
+        print '!!!!'
         context = dict()
         # context = self.context
         # context['status'] = "work in progress"
@@ -17,7 +18,8 @@ class HomeHandler(DjangoBaseHandler):
         rTest = TestModel.objects.all()
         context['list'] = rTest
 
-        t = self.render_string('index.html', **context)
+        t = self.render_string('player.html', **context)
         self.write(t)
 
         # self.render('index.html', **context)
+

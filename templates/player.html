@@ -1,0 +1,37 @@
+{% extends "layouts/base.html" %}
+
+
+{% block html-head%}
+    <title>[Peader]</title>
+
+    <script type="text/javascript" src="/static/jwplayer/jwplayer.js"></script>
+    <script type="text/javascript">jwplayer.key="85Ft0p4sZ4cETjwkCCVnvYDVHewyIg9tfy23Dg==";</script>
+
+{% end %}
+
+
+{% block header %}
+{% end %}
+
+
+{% block content %}
+<div>
+
+    <a href="/static/img/diana052.jpg"><img src="static/img/diana052.jpg" width="200"></a><br/>
+
+    <video width="320" height="240" controls>
+      <source src="static/video/test2.mp4" type="video/mp4">
+    </video>
+
+<div id="myElement">Loading the player...</div>
+
+<script type="text/javascript">
+    jwplayer("myElement").setup({
+        file: "static/video/jwtest.mp4",
+        image: "static/img/diana052.jpg"
+    });
+</script>
+
+</div>
+
+{% end %}
