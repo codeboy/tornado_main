@@ -1,5 +1,5 @@
-Tornado Web Server
-==================
+Tornado - Django project
+========================
 
 Project to connect `Tornado <http://www.tornadoweb.org>`_ with `Django <http://www.djangoproject.com/>`_
 
