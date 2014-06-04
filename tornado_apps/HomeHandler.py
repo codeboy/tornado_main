@@ -1,7 +1,7 @@
 # coding: utf-8
 
 from tornado_apps.BaseHandler import BaseHandler
-from tornado_apps.DjangoHandler import DjangoBaseHandler
+from tornado_apps.BaseDjangoHandler import DjangoBaseHandler
 from django_apps.dj_site.models import TestModel
 
 

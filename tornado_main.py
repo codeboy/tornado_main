@@ -11,27 +11,22 @@ import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_settings.settings")
 
 import tornado_settings.t_settings as TS
+
 define('port', type=int, default=8000)
 # define('port', type=int, default=TS.PORT)
 
-from tornado_apps import (
-    BaseHandler,
-    HomeHandler,
-    SenderHandler,
-)
+from routes import ROUTES
 
 
 def main():
-    tornado.options.define('debug', default=False)
+    parse_command_line()
+    tornado.options.define('debug', default=True)
 
     wsgi_app = tornado.wsgi.WSGIContainer(django.core.handlers.wsgi.WSGIHandler())
 
-    handlers = [
-        (r"/static/(.*)", tornado.web.StaticFileHandler, {"path": TS.STATIC_PATH}),
-
-        (r'/', HomeHandler.HomeHandler),
-
-        (r'/send-sms/', SenderHandler.SenderHandler),
+    handlers = ROUTES
+    handlers += [
+        # described below only direct connections to Django
         ('/dj/.*', tornado.web.FallbackHandler, dict(fallback=wsgi_app)),
     ]
 
@@ -65,4 +60,5 @@ class Application(tornado.web.Application):
         tornado.web.Application.__init__(self, handlers, **settings)
         # Have one global connection.
         self.db = scoped_session(sessionmaker(bind=engine))
+
 '''
