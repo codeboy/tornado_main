@@ -19,7 +19,6 @@ from routes import ROUTES
 
 
 def main():
-    print TS.STATIC_PATH
     parse_command_line()
     tornado.options.define('debug', default=True)
 
