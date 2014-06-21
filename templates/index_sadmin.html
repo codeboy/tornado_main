@@ -1,0 +1,26 @@
+{% extends "layouts/base_sadmin.html" %}
+
+
+{% block html-head%}
+    <title>Peader</title>
+{% end %}
+
+
+{% block header %}
+{% end %}
+
+
+{% block content %}
+<div>
+    <p>'dfdfdf'fdfdf</p>
+
+    <!--This is <a href="http://www.tornadoweb.org/">Tornado</a> web server with <a href="www.djangoproject.com">Django</a> on it.-->
+    {% for i in list %}
+        {{ i.name }}
+    {% end %}
+</div>
+
+<div>
+    {% if globals().get('status') %}Status - {{ status }}{% end %}
+</div>
+{% end %}
