@@ -1,0 +1,16 @@
+# Russian translations for PROJECT.
+
+
+#: templates/layouts/base_sadmin.html:159
+msgid "Projects"
+msgstr ""
+
+#: templates/layouts/base_sadmin.html:291
+#: templates/layouts/base_sadmin.html:296
+msgid "Russian"
+msgstr "Русский"
+
+#: templates/layouts/base_sadmin.html:300
+msgid "English"
+msgstr "Английский"
+

@@ -10,9 +10,12 @@ import tornado.options
 import tornado.web
 
 from tornado.options import options, define
+from tornadobabel import locale
+from tornadobabel.mixin import TornadoBabelMixin
 
 
-class DjangoBaseHandler(tornado.web.RequestHandler):
+
+class DjangoBaseHandler(TornadoBabelMixin, tornado.web.RequestHandler):
     def prepare(self):
         super(DjangoBaseHandler, self).prepare()
         # Prepare ORM connections
@@ -42,6 +45,16 @@ class DjangoBaseHandler(tornado.web.RequestHandler):
         return self._session
 
     def get_user_locale(self):
+        # locale.get will use the first non-empty argument that matches a
+        # supported language.
+        return locale.get(
+            self.get_argument('lang', None),
+            self.get_django_session().get('django_language', None),
+            self.get_cookie('django_language', None))
+
+
+    def old_get_user_locale(self):
+        # This is for origin tornado i18n
         # locale.get will use the first non-empty argument that matches a
         # supported language.
         return tornado.locale.get(

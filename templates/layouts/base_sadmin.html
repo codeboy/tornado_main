@@ -156,7 +156,7 @@ Use search to find needed section.
     <!-- #PROJECTS: projects dropdown -->
     <div class="project-context hidden-xs">
 
-        <span class="label">Projects:</span>
+        <span class="label">{{ _('Projects') }}:</span>
         <span class="project-selector dropdown-toggle" data-toggle="dropdown">Recent projects <i
                 class="fa fa-angle-down"></i></span>
 
@@ -286,21 +286,18 @@ Use search to find needed section.
         <!-- multiple lang dropdown : find all flags in the flags page -->
         <ul class="header-dropdown-list hidden-xs">
             <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="static/sadmin/img/blank.gif"
-                                                                                 class="flag flag-us"
-                                                                                 alt="United States"> <span> US </span>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="static/sadmin/img/blank.gif" class="flag flag-ru" alt="Russian">
+                        <span>{{ _('Russian') }}</span>
                     <i class="fa fa-angle-down"></i> </a>
                 <ul class="dropdown-menu pull-right">
                     <li class="active">
-                        <a href="javascript:void(0);"><img src="static/sadmin/img/blank.gif" class="flag flag-us" alt="United States">
-                            US</a>
+                        <a href="javascript:void(0);"><img src="static/sadmin/img/blank.gif" class="flag flag-ru" alt="Russian">
+                            {{ _('Russian') }}</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);"><img src="static/sadmin/img/blank.gif" class="flag flag-es" alt="Spanish">
-                            Spanish</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);"><img src="static/sadmin/img/blank.gif" class="flag flag-de" alt="German"> German</a>
+                        <a href="javascript:void(0);"><img src="static/sadmin/img/blank.gif" class="flag flag-gb" alt="English">
+                            {{ _('English') }}</a>
                     </li>
                 </ul>
             </li>
@@ -349,15 +346,15 @@ traditional href="" links. See documentation for details.
 
 <ul>
 <li class="">
-    <a href="ajax/main" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span
-            class="menu-item-parent">Dashboard</span></a>
+    <a href="ajax/main" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i>
+        <span class="menu-item-parent">Dashboard</span></a>
 </li>
 
 <li>
-    <a href="ajax/blank"><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Blank page</span></a>
+    <a href="ajax/blank"><span class="menu-item-parent">Blank page</span></a>
 </li>
 <li>
-    <a href="ajax/blank_widget"><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Blank with widget page</span></a>
+    <a href="ajax/blank_widget"><span class="menu-item-parent">Blank with widget page</span></a>
 </li>
 
 

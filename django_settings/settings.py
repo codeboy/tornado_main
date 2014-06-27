@@ -110,3 +110,5 @@ LOGGING = {
         },
     }
 }
+
+FORCE_SCRIPT_NAME = '/dj'

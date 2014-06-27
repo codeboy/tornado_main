@@ -16,11 +16,14 @@ define('port', type=int, default=8000)
 # define('port', type=int, default=TS.PORT)
 
 from routes import ROUTES
+from tornadobabel.locale import load_gettext_translations
 
 
 def main():
     parse_command_line()
     tornado.options.define('debug', default=True)
+
+    load_gettext_translations('translations', 'messages')
 
     wsgi_app = tornado.wsgi.WSGIContainer(django.core.handlers.wsgi.WSGIHandler())
 
