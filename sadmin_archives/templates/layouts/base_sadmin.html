@@ -2,10 +2,7 @@
 <html lang="en-us">
 <head>
     <meta charset="utf-8">
-    {% block html-head %}
-        <title>Some title</title>
-    {% end %}
-
+    <title> SmartAdmin (AJAX)</title>
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -145,11 +142,11 @@ Use search to find needed section.
             <!-- end notification content -->
 
             <!-- footer: refresh area -->
-                <span> Last updated on: 12/12/2013 9:43AM
-                    <button type="button" data-loading-text="<i class='fa fa-refresh fa-spin'></i> Loading..."
-                            class="btn btn-xs btn-default pull-right">
-                        <i class="fa fa-refresh"></i>
-                    </button> </span>
+					<span> Last updated on: 12/12/2013 9:43AM
+						<button type="button" data-loading-text="<i class='fa fa-refresh fa-spin'></i> Loading..."
+                                class="btn btn-xs btn-default pull-right">
+                            <i class="fa fa-refresh"></i>
+                        </button> </span>
             <!-- end footer -->
 
         </div>
@@ -246,7 +243,6 @@ Use search to find needed section.
         </div>
         <!-- end search mobile button -->
 
-
         <!-- #SEARCH -->
         <!-- input: search field -->
         <form action="#ajax/search.html" class="header-search pull-right">
@@ -297,11 +293,11 @@ Use search to find needed section.
                 <ul class="dropdown-menu pull-right">
                     <li class="active">
                         <a href="javascript:void(0);"><img src="static/sadmin/img/blank.gif" class="flag flag-ru" alt="Russian">
-                            &nbsp;{{ _('Russian') }}</a>
+                            {{ _('Russian') }}</a>
                     </li>
                     <li>
                         <a href="javascript:void(0);"><img src="static/sadmin/img/blank.gif" class="flag flag-gb" alt="English">
-                            &nbsp;{{ _('English') }}</a>
+                            {{ _('English') }}</a>
                     </li>
                 </ul>
             </li>
@@ -319,13 +315,295 @@ Use search to find needed section.
 <!-- Note: This width of the aside area can be adjusted through LESS variables -->
 <aside id="left-panel">
 
-    <!-- User info -->
-    {% include '../includes/inc_user_info.html' %}
+<!-- User info -->
+<div class="login-info">
+        <span> <!-- User image size is adjusted inside CSS, it should stay as is -->
 
-    {% include '../includes/inc_navigation.html' %}
+            <a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
+                <img src="static/sadmin/img/avatars/sunny.png" alt="me" class="online"/>
+                <span>
+                    john.doe
+                </span>
+                <i class="fa fa-angle-down"></i>
+            </a>
+
+        </span>
+</div>
+<!-- end user info -->
+
+<!-- NAVIGATION : This navigation is also responsive
+
+To make this navigation dynamic please make sure to link the node
+(the reference to the nav > ul) after page load. Or the navigation
+will not initialize.
+-->
+<nav>
+<!--
+NOTE: Notice the gaps after each icon usage <i></i>..
+Please note that these links work a bit different than
+traditional href="" links. See documentation for details.
+-->
+
+<ul>
+<li class="">
+    <a href="ajax/main" title="{{ _('Dashboard') }}"><i class="fa fa-lg fa-fw fa-home"></i>
+        <span class="menu-item-parent">{{ _('Dashboard') }}</span></a>
+</li>
+
+<li>
+    <a href="ajax/blank"><span class="menu-item-parent">Blank page</span></a>
+</li>
+<li>
+    <a href="ajax/blank_widget"><span class="menu-item-parent">Blank with widget page</span></a>
+</li>
+
+
+<li>
+    <a href="ajax/inbox.html"><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Inbox</span><span
+            class="badge pull-right inbox-badge">14</span></a>
+</li>
+<li>
+    <a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">Graphs</span></a>
+    <ul>
+        <li>
+            <a href="ajax/flot.html">Flot Chart</a>
+        </li>
+        <li>
+            <a href="ajax/morris.html">Morris Charts</a>
+        </li>
+        <li>
+            <a href="ajax/inline-charts.html">Inline Charts</a>
+        </li>
+        <li>
+            <a href="ajax/dygraphs.html">Dygraphs <span class="badge pull-right inbox-badge bg-color-yellow">new</span></a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Tables</span></a>
+    <ul>
+        <li>
+            <a href="ajax/table.html">Normal Tables</a>
+        </li>
+        <li>
+            <a href="ajax/datatables.html">Data Tables <span class="badge inbox-badge bg-color-greenLight">v1.10</span></a>
+        </li>
+        <li>
+            <a href="ajax/jqgrid.html">Jquery Grid</a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a href="#"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i> <span class="menu-item-parent">Forms</span></a>
+    <ul>
+        <li>
+            <a href="ajax/form-elements.html">Smart Form Elements</a>
+        </li>
+        <li>
+            <a href="ajax/form-templates.html">Smart Form Layouts</a>
+        </li>
+        <li>
+            <a href="ajax/validation.html">Smart Form Validation</a>
+        </li>
+        <li>
+            <a href="ajax/bootstrap-forms.html">Bootstrap Form Elements</a>
+        </li>
+        <li>
+            <a href="ajax/plugins.html">Form Plugins</a>
+        </li>
+        <li>
+            <a href="ajax/wizard.html">Wizards</a>
+        </li>
+        <li>
+            <a href="ajax/other-editors.html">Bootstrap Editors</a>
+        </li>
+        <li>
+            <a href="ajax/dropzone.html">Dropzone</a>
+        </li>
+        <li>
+            <a href="ajax/image-editor.html">Image Cropping <span class="badge pull-right inbox-badge bg-color-yellow">new</span></a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i> <span class="menu-item-parent">UI Elements</span></a>
+    <ul>
+        <li>
+            <a href="ajax/general-elements.html">General Elements</a>
+        </li>
+        <li>
+            <a href="ajax/buttons.html">Buttons</a>
+        </li>
+        <li>
+            <a href="#">Icons</a>
+            <ul>
+                <li>
+                    <a href="ajax/fa.html"><i class="fa fa-plane"></i> Font Awesome</a>
+                </li>
+                <li>
+                    <a href="ajax/glyph.html"><i class="glyphicon glyphicon-plane"></i> Glyph Icons</a>
+                </li>
+                <li>
+                    <a href="ajax/flags.html"><i class="fa fa-flag"></i> Flags</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="ajax/grid.html">Grid</a>
+        </li>
+        <li>
+            <a href="ajax/treeview.html">Tree View</a>
+        </li>
+        <li>
+            <a href="ajax/nestable-list.html">Nestable Lists</a>
+        </li>
+        <li>
+            <a href="ajax/jqui.html">JQuery UI</a>
+        </li>
+        <li>
+            <a href="ajax/typography.html">Typography</a>
+        </li>
+        <li>
+            <a href="#">Six Level Menu</a>
+            <ul>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-folder-open"></i> Item #2</a>
+                    <ul>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-folder-open"></i> Sub #2.1 </a>
+                            <ul>
+                                <li>
+                                    <a href="#"><i class="fa fa-fw fa-file-text"></i> Item #2.1.1</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-fw fa-plus"></i> Expand</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-fw fa-trash-o"></i> Delete</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-folder-open"></i> Item #3</a>
+
+                    <ul>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-folder-open"></i> 3ed Level </a>
+                            <ul>
+                                <li>
+                                    <a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </li>
+            </ul>
+        </li>
+    </ul>
+</li>
+<li>
+    <a href="ajax/calendar.html"><i class="fa fa-lg fa-fw fa-calendar"><em>3</em></i> <span class="menu-item-parent">Calendar</span></a>
+</li>
+<li>
+    <a href="ajax/widgets.html"><i class="fa fa-lg fa-fw fa-list-alt"></i> <span class="menu-item-parent">Widgets</span></a>
+</li>
+<li>
+    <a href="ajax/gallery.html"><i class="fa fa-lg fa-fw fa-picture-o"></i> <span
+            class="menu-item-parent">Gallery</span></a>
+</li>
+<li>
+    <a href="ajax/gmap-xml.html"><i class="fa fa-lg fa-fw fa-map-marker"></i> <span
+            class="menu-item-parent">GMap Skins</span><span
+            class="badge bg-color-greenLight pull-right inbox-badge">9</span></a>
+</li>
+<li>
+    <a href="#"><i class="fa fa-lg fa-fw fa-windows"></i> <span class="menu-item-parent">Miscellaneous</span></a>
+    <ul>
+        <li>
+            <a href="#"><i class="fa fa-file"></i> Other Pages</a>
+            <ul>
+                <li>
+                    <a href="ajax/forum.html">Forum Layout</a>
+                </li>
+                <li>
+                    <a href="ajax/profile.html">Profile</a>
+                </li>
+                <li>
+                    <a href="ajax/timeline.html">Timeline</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="ajax/pricing-table.html">Pricing Tables</a>
+        </li>
+        <li>
+            <a href="ajax/invoice.html">Invoice</a>
+        </li>
+        <li>
+            <a href="login.html" target="_top">Login</a>
+        </li>
+        <li>
+            <a href="register.html" target="_top">Register</a>
+        </li>
+        <li>
+            <a href="lock.html" target="_top">Locked Screen</a>
+        </li>
+        <li>
+            <a href="ajax/error404.html">Error 404</a>
+        </li>
+        <li>
+            <a href="ajax/error500.html">Error 500</a>
+        </li>
+        <li>
+            <a href="ajax/blank_.html">Blank Page</a>
+        </li>
+        <li>
+            <a href="ajax/email-template.html">Email Template</a>
+        </li>
+        <li>
+            <a href="ajax/search.html">Search Page</a>
+        </li>
+        <li>
+            <a href="ajax/ckeditor.html">CK Editor</a>
+        </li>
+    </ul>
+</li>
+<li class="top-menu-hidden">
+    <a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span
+            class="menu-item-parent">SmartAdmin Intel</span></a>
+    <ul>
+        <li>
+            <a href="ajax/difver.html"><i class="fa fa-stack-overflow"></i> Different Versions</a>
+        </li>
+        <li>
+            <a href="ajax/applayout.html"><i class="fa fa-cube"></i> App Settings</a>
+        </li>
+        <li>
+            <a href="http://bootstraphunter.com/smartadmin/BUGTRACK/track_/documentation/index.html" target="_blank"><i
+                    class="fa fa-book"></i> Documentation</a>
+        </li>
+        <li>
+            <a href="http://bootstraphunter.com/smartadmin/BUGTRACK/track_/" target="_blank"><i class="fa fa-bug"></i>
+                Bug Tracker</a>
+        </li>
+    </ul>
+</li>
+</ul>
+</nav>
+<span class="minifyme" data-action="minifyMenu"> <i class="fa fa-arrow-circle-left hit"></i> </span>
+
 </aside>
 <!-- END NAVIGATION -->
-
 
 <!-- #MAIN PANEL -->
 <div id="main" role="main">
@@ -336,9 +614,9 @@ Use search to find needed section.
             <span class="ribbon-button-alignment">
                 <span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"
                       rel="tooltip" data-placement="bottom"
-                      data-original-title="{{ _('<i class="text-warning fa fa-warning"></i> Warning! This will reset all your widget settings.') }}"
+                      data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings."
                       data-html="true"
-                      data-reset-msg="{{ _('Would you like to RESET all your saved widgets and clear LocalStorage?') }}"><i
+                      data-reset-msg="Would you like to RESET all your saved widgets and clear LocalStorage?"><i
                         class="fa fa-refresh"></i></span>
             </span>
 
@@ -348,6 +626,16 @@ Use search to find needed section.
         </ol>
         <!-- end breadcrumb -->
 
+        <!-- You can also add more buttons to the
+        ribbon for further usability
+
+        Example below:
+
+        <span class="ribbon-button-alignment pull-right">
+        <span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
+        <span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
+        <span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
+        </span> -->
 
     </div>
     <!-- END RIBBON -->
@@ -363,9 +651,70 @@ Use search to find needed section.
 <!-- END #MAIN PANEL -->
 
 <!-- #PAGE FOOTER -->
+<div class="page-footer">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6">
+            <span class="txt-color-white">SmartAdmin WebApp © 2013-2014</span>
+        </div>
 
+        <div class="col-xs-6 col-sm-6 text-right hidden-xs">
+            <div class="txt-color-white inline-block">
+                <i class="txt-color-blueLight hidden-mobile">Last account activity <i class="fa fa-clock-o"></i>
+                    <strong>52 mins ago &nbsp;</strong> </i>
+
+                <div class="btn-group dropup">
+                    <button class="btn btn-xs dropdown-toggle bg-color-blue txt-color-white" data-toggle="dropdown">
+                        <i class="fa fa-link"></i> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu pull-right text-left">
+                        <li>
+                            <div class="padding-5">
+                                <p class="txt-color-darken font-sm no-margin">Download Progress</p>
+
+                                <div class="progress progress-micro no-margin">
+                                    <div class="progress-bar progress-bar-success" style="width: 50%;"></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="padding-5">
+                                <p class="txt-color-darken font-sm no-margin">Server Load</p>
+
+                                <div class="progress progress-micro no-margin">
+                                    <div class="progress-bar progress-bar-success" style="width: 20%;"></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="padding-5">
+                                <p class="txt-color-darken font-sm no-margin">Memory Load <span class="text-danger">*critical*</span>
+                                </p>
+
+                                <div class="progress progress-micro no-margin">
+                                    <div class="progress-bar progress-bar-danger" style="width: 70%;"></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="padding-5">
+                                <button class="btn btn-block btn-default">refresh</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end btn-group-->
+            </div>
+            <!-- end div-->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end row -->
+</div>
 <!-- END FOOTER -->
-{% include '../includes/inc_footer.html' %}
+
 <!-- #SHORTCUT AREA : With large tiles (activated via clicking user name tag)
      Note: These tiles are completely responsive, you can add as many as you like -->
 <div id="shortcut">
@@ -465,7 +814,7 @@ Use search to find needed section.
 <!--<script src="static/sadmin/js/demo.min.js"></script>-->
 
 <!-- MAIN APP JS FILE -->
-<script src="static/js/app.js"></script>
+<script src="static/sadmin/js/app.min.js"></script>
 
 <!-- Your GOOGLE ANALYTICS CODE Below -->
 <script type="text/javascript">

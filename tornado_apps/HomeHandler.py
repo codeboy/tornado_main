@@ -17,6 +17,11 @@ class HomeHandler(DjangoBaseHandler):
         rTest = TestModel.objects.all()
         context['list'] = rTest
 
+        d_request = self.get_django_request()
+
+        user_name = d_request.user.username
+        context['user_name'] = user_name
+
         t = self.render_string('index_sadmin.html', **context)
         self.write(t)
 

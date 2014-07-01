@@ -1,0 +1,32 @@
+<div class="login-info">
+{% if not user_name %}
+
+    <span> <!-- User image size is adjusted inside CSS, it should stay as is -->
+
+        <a href="javascript:void(0);" id="show-login" data-action="toggleLogin">
+            <i class="glyphicon glyphicon-log-in font-lg txt-color-blue"> </i>
+            <span style="padding-bottom: 9px">
+                &nbsp;&nbsp;login&nbsp;&nbsp;
+            </span>
+            <i class="fa fa-angle-down"></i>
+        </a>
+
+    </span>
+
+{% else %}
+
+    <span> <!-- User image size is adjusted inside CSS, it should stay as is -->
+
+        <a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
+            <img src="static/sadmin/img/avatars/sunny.png" alt="me" class="online"/>
+            <span>
+                    {{ user_name }}
+{#                john.doe#}
+            </span>
+            <i class="fa fa-angle-down"></i>
+        </a>
+
+    </span>
+
+{% end %}
+</div>

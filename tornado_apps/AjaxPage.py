@@ -16,15 +16,6 @@ class MainPage(DjangoBaseHandler):
         # context = self.context
         # context['status'] = "work in progress"
 
-        dj_request = self.get_django_request()
-
-        # locale.get('en_US')
-
-        print self.get_argument('lang', None)
-        print self.get_django_session().get('django_language', None)
-        print self.get_cookie('django_language', None)
-
-
         t = self.render_string('pages/main.html', **context)
         return self.write(t)
 
