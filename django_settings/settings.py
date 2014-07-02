@@ -78,6 +78,7 @@ ROOT_URLCONF = 'django_apps.urls'
 
 import os
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '', '../templates').replace('\\','/'),)
+TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '', '../dj_templates').replace('\\','/'),)
 
 INSTALLED_APPS = (
     'django.contrib.auth',

@@ -22,7 +22,7 @@ class Homepage(
     """
     homepage
     """
-    template_name = 'dj/base.html'
+    template_name = 'base.html'
 
 
     def get_context_data(self, **kwargs):
@@ -39,7 +39,7 @@ class RegisterUser(
     """
     homepage
     """
-    template_name = 'dj/user-info.html'
+    template_name = 'user-info.html'
 
 
     def get(self, request, *args, **kwargs):

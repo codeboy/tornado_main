@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-06-27 17:47+0400\n"
+"POT-Creation-Date: 2014-07-02 20:17+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -19,46 +19,96 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: templates/layouts/base_sadmin.html:159
+#: django_apps/userman/admin.py:78
+msgid "Contacts"
+msgstr ""
+
+#: django_apps/userman/admin.py:84
+msgid "Permissions"
+msgstr ""
+
+#: django_apps/userman/old_models.py:40
+msgid "таки группы, да!"
+msgstr ""
+
+#: django_apps/userman/views.py:41
+msgid "Successfully logged out."
+msgstr ""
+
+#: sadmin_archives/templates/layouts/base_sadmin.html:159
+#: templates/layouts/base_sadmin.html:162
 msgid "Tasks"
 msgstr "Задачи"
 
-#: templates/layouts/base_sadmin.html:160
+#: sadmin_archives/templates/layouts/base_sadmin.html:160
+#: templates/layouts/base_sadmin.html:163
 msgid "Recent tasks "
 msgstr "Открытые задачи"
 
-#: templates/layouts/base_sadmin.html:221
-#: templates/layouts/base_sadmin.html:281
+#: sadmin_archives/templates/layouts/base_sadmin.html:221
+#: sadmin_archives/templates/layouts/base_sadmin.html:281
+#: templates/layouts/base_sadmin.html:224
+#: templates/layouts/base_sadmin.html:285
 msgid "Full Screen"
 msgstr "На весь экран"
 
-#: templates/layouts/base_sadmin.html:234
+#: sadmin_archives/templates/layouts/base_sadmin.html:234
+#: templates/layouts/base_sadmin.html:237
 msgid "Sign Out"
 msgstr "Выход"
 
-#: templates/layouts/base_sadmin.html:242
+#: sadmin_archives/templates/layouts/base_sadmin.html:242
+#: templates/layouts/base_sadmin.html:245
 msgid "Search"
 msgstr "Поиск"
 
-#: templates/layouts/base_sadmin.html:249
+#: sadmin_archives/templates/layouts/base_sadmin.html:249
+#: templates/layouts/base_sadmin.html:253
 msgid "Site search"
 msgstr "Поиск по сайту"
 
-#: templates/layouts/base_sadmin.html:291
-#: templates/layouts/base_sadmin.html:296
+#: sadmin_archives/templates/layouts/base_sadmin.html:291
+#: sadmin_archives/templates/layouts/base_sadmin.html:296
+#: templates/layouts/base_sadmin.html:295
+#: templates/layouts/base_sadmin.html:300
 msgid "Russian"
 msgstr "Русский"
 
-#: templates/layouts/base_sadmin.html:300
+#: sadmin_archives/templates/layouts/base_sadmin.html:300
+#: templates/layouts/base_sadmin.html:304
 msgid "English"
 msgstr "Английский"
 
-#: templates/layouts/base_sadmin.html:349
-#: templates/layouts/base_sadmin.html:350
-#: templates/pages/layouts/page_base.html:12
-#: templates/pages/layouts/page_base.html:14
+#: sadmin_archives/templates/layouts/base_sadmin.html:349
+#: sadmin_archives/templates/layouts/base_sadmin.html:350
+#: templates/includes/inc_navigation.html:17
+#: templates/includes/inc_navigation.html:18
 msgid "Dashboard"
 msgstr "Сводки"
+
+#: templates/layouts/base_sadmin.html:238
+msgid ""
+"You can improve your security further after logging out by closing this "
+"opened browser"
+msgstr ""
+"Вы можете улучшить безопасность после выхода, если закроете вкладку\окно "
+"и перезапустите браузер"
+
+#: templates/layouts/base_sadmin.html:339
+msgid ""
+"<i class=\"text-warning fa fa-warning\"></i> Warning! This will reset all"
+" your widget settings."
+msgstr ""
+"<i class=\"text-warning fa fa-warning\"></i> Внимание! Произойдёт сброс всех"
+" ваших настроек на этой странице."
+
+#: templates/layouts/base_sadmin.html:341
+msgid "Would you like to RESET all your saved widgets and clear LocalStorage?"
+msgstr "Вы хотите сбросить все настройки виджетов и локального хранилища для сайта?"
+
+#: templates/layouts/base_sadmin.html:410
+msgid "Logout"
+msgstr "Выход"
 
 #~ msgid "Projects"
 #~ msgstr ""
