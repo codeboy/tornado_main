@@ -30,7 +30,8 @@ def main():
     handlers = ROUTES
     handlers += [
         # described below only direct connections to Django
-        ('/dj/.*', tornado.web.FallbackHandler, dict(fallback=wsgi_app)),
+        # ('/dj/.*', tornado.web.FallbackHandler, dict(fallback=wsgi_app)),
+        ('.*', tornado.web.FallbackHandler, dict(fallback=wsgi_app)),
     ]
 
     settings = {
@@ -65,3 +66,4 @@ class Application(tornado.web.Application):
         self.db = scoped_session(sessionmaker(bind=engine))
 
 '''
+

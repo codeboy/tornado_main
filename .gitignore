@@ -62,3 +62,4 @@ media/*
 static/*
 
 tornado_settings/t_settings_local.py
+django_settings/settings_local.py

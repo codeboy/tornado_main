@@ -68,6 +68,12 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.request',
+    'social_auth.context_processors.social_auth_by_name_backends',
+)
+
 ROOT_URLCONF = 'django_apps.urls'
 
 import os
@@ -82,6 +88,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
+
+    'south',
+    'social_auth',
 
     'django_apps.dj_site'
 )
@@ -111,4 +120,79 @@ LOGGING = {
     }
 }
 
-FORCE_SCRIPT_NAME = '/dj'
+# FORCE_SCRIPT_NAME = '/dj'
+
+###   SOCIAL-AUTH  #######################
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.twitter.TwitterBackend',
+    'social_auth.backends.facebook.FacebookBackend',
+    'social_auth.backends.google.GoogleOAuthBackend',
+    'social_auth.backends.google.GoogleOAuth2Backend',
+    'social_auth.backends.google.GoogleBackend',
+    'social_auth.backends.browserid.BrowserIDBackend',
+    'social_auth.backends.contrib.linkedin.LinkedinBackend',
+    'social_auth.backends.contrib.disqus.DisqusBackend',
+    'social_auth.backends.contrib.livejournal.LiveJournalBackend',
+    'social_auth.backends.contrib.orkut.OrkutBackend',
+    'social_auth.backends.contrib.foursquare.FoursquareBackend',
+    'social_auth.backends.contrib.github.GithubBackend',
+    'social_auth.backends.contrib.vk.VKOAuth2Backend',
+    'social_auth.backends.OpenIDBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+# Setup login URLs:
+LOGIN_URL          = '/login-form/'
+LOGIN_REDIRECT_URL = '/register-user'
+LOGIN_ERROR_URL    = '/login-error/'
+
+#If a custom redirect URL is needed that must be different to LOGIN_URL, define the setting:
+# SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/another-login-url/'
+
+#A different URL could be defined for newly registered users:
+# SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/new-users-redirect-url/'
+
+#or for newly associated accounts:
+# SOCIAL_AUTH_NEW_ASSOCIATION_REDIRECT_URL = '/new-association-redirect-url/'
+
+#or for account disconnections:
+# SOCIAL_AUTH_DISCONNECT_REDIRECT_URL = '/account-disconnected-redirect-url/'
+
+#Users will be redirected to LOGIN_ERROR_URL in case of error or user cancellation on some backends. This URL can be override by this setting:
+# SOCIAL_AUTH_BACKEND_ERROR_URL = '/new-error-url/'
+
+#Configure authentication and association complete URL names to avoid possible clashes:
+# SOCIAL_AUTH_COMPLETE_URL_NAME  = 'socialauth_complete'
+# SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'socialauth_associate_complete'
+
+#Inactive users can be redirected to a different page if this setting is defined:
+# SOCIAL_AUTH_INACTIVE_USER_URL = '...'
+
+# It’s possible to override the used User model if needed:
+# SOCIAL_AUTH_USER_MODEL = 'myapp.CustomUser'
+
+# Used to build a default username if provider didn’t returned any useful value:
+SOCIAL_AUTH_DEFAULT_USERNAME = 'social-anonym'
+
+SOCIAL_AUTH_CREATE_USERS = True
+
+# Перечислим pipeline, которые последовательно буду обрабатывать респонс
+SOCIAL_AUTH_PIPELINE = (
+    # Получает по backend и uid инстансы social_user и user
+    'social_auth.backends.pipeline.social.social_auth_user',
+    # Получает по user.email инстанс пользователя и заменяет собой тот, который получили выше.
+    # Кстати, email выдает только Facebook и GitHub, а Vkontakte и Twitter не выдают
+    'social_auth.backends.pipeline.associate.associate_by_email',
+    # Пытается собрать правильный username, на основе уже имеющихся данных
+    'social_auth.backends.pipeline.user.get_username',
+    # Создает нового пользователя, если такого еще нет
+    'social_auth.backends.pipeline.user.create_user',
+    # Пытается связать аккаунты
+    'social_auth.backends.pipeline.social.associate_user',
+    # Получает и обновляет social_user.extra_data
+    'social_auth.backends.pipeline.social.load_extra_data',
+    # Обновляет инстанс user дополнительными данными с бекенда
+    'social_auth.backends.pipeline.user.update_user_details'
+)
+
+from settings_local import *
