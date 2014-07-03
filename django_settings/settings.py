@@ -93,7 +93,10 @@ INSTALLED_APPS = (
     'south',
     'social_auth',
 
-    'django_apps.dj_site'
+    'django_apps.dj_site',
+    'django_apps.gamesapp',
+    'django_apps.teamapp',
+    'django_apps.userman'
 )
 
 
