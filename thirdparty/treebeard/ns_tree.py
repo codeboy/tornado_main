@@ -6,8 +6,8 @@ from django.db.models import Q
 from django.utils.translation import ugettext_noop as _
 
 import operator
-from boss_tools.treebeard.exceptions import InvalidMoveToDescendant
-from boss_tools.treebeard.models import Node
+from thirdparty.treebeard.exceptions import InvalidMoveToDescendant
+from thirdparty.treebeard.models import Node
 
 
 class NS_NodeQuerySet(models.query.QuerySet):

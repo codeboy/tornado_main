@@ -2,9 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
 
-from boss_tools.treebeard.mp_tree import MP_Node
-from boss_tools.treebeard.al_tree import AL_Node
-from boss_tools.treebeard.ns_tree import NS_Node
+from thirdparty.treebeard.mp_tree import MP_Node
+from thirdparty.treebeard.al_tree import AL_Node
+from thirdparty.treebeard.ns_tree import NS_Node
 
 
 class MP_TestNode(MP_Node):

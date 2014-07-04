@@ -8,8 +8,8 @@ from django.db import models, transaction, connection
 from django.db.models import Q
 from django.utils.translation import ugettext_noop as _
 
-from boss_tools.treebeard.models import Node
-from boss_tools.treebeard.exceptions import InvalidMoveToDescendant, PathOverflow
+from thirdparty.treebeard.models import Node
+from thirdparty.treebeard.exceptions import InvalidMoveToDescendant, PathOverflow
 
 
 class MP_NodeQuerySet(models.query.QuerySet):

@@ -1,5 +1,52 @@
-{% extends "layouts/page_base.html" %}
+{% extends "layouts/page_base_blank.html" %}
 
 {% block content %}
-    zzzzzzzz zzzzzzzz
+<div class="row">
+
+    <div class="col-sm-4">
+        <h3 class="text-primary">{{ _('Games') }}</h3>
+
+        {% if globals().get('status') %}Status - {{ status }}{% end %}
+
+        <div class="well well-sm">
+            <ul>
+                {% if globals().get('games') %}
+                    {% for game in games %}
+                        <li><a href="{{ game.link_game }}">{{ game }}</a></li>
+                    {% end %}
+                {% end %}
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="col-sm-4">
+        <h3 class="text-primary">{{ _('Users') }}</h3>
+
+        <div class="well well-sm">
+            <ul class="list-unstyled">
+                {% for user in users %}
+                    <li>{{ user }}</li>
+                {% end %}
+            </ul>
+        </div>
+
+    </div>
+
+
+    <div class="col-sm-4">
+        <h3 class="text-primary">{{ _('Teams') }}</h3>
+
+        <div class="well well-sm">
+            <ul>
+                {% for team in teams %}
+                    <li>{{ team }}</li>
+                {% end %}
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
 {% end %}

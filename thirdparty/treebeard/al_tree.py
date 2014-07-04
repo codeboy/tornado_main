@@ -4,8 +4,8 @@ from django.core import serializers
 from django.db import connection, models, transaction
 from django.utils.translation import ugettext_noop as _
 
-from boss_tools.treebeard.exceptions import InvalidMoveToDescendant
-from boss_tools.treebeard.models import Node
+from thirdparty.treebeard.exceptions import InvalidMoveToDescendant
+from thirdparty.treebeard.models import Node
 
 
 class AL_NodeManager(models.Manager):

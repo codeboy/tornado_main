@@ -12,10 +12,10 @@ from django.db.models import Q
 from django.conf import settings
 from django.utils.functional import wraps
 
-from boss_tools.treebeard import numconv
-from boss_tools.treebeard.exceptions import InvalidPosition, InvalidMoveToDescendant, \
+from thirdparty.treebeard import numconv
+from thirdparty.treebeard.exceptions import InvalidPosition, InvalidMoveToDescendant, \
     PathOverflow, MissingNodeOrderBy
-from boss_tools.treebeard.forms import MoveNodeForm
+from thirdparty.treebeard.forms import MoveNodeForm
 import models
 
 import pytest

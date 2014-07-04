@@ -173,7 +173,7 @@ LOGIN_ERROR_URL    = '/login-error/'
 # SOCIAL_AUTH_INACTIVE_USER_URL = '...'
 
 # It’s possible to override the used User model if needed:
-# SOCIAL_AUTH_USER_MODEL = 'myapp.CustomUser'
+# SOCIAL_AUTH_USER_MODEL = 'django_apps.userman.models.MainUser'
 
 # Used to build a default username if provider didn’t returned any useful value:
 SOCIAL_AUTH_DEFAULT_USERNAME = 'social-anonym'

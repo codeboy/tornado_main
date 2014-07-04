@@ -3,7 +3,7 @@
 from django.contrib import admin
 from thirdparty.treebeard.admin import TreeAdmin
 
-from models import MainUser
+from models import Team
 
 
 class DefaultAdmin(admin.ModelAdmin):
@@ -12,8 +12,7 @@ class DefaultAdmin(admin.ModelAdmin):
 class MixedSlugAdmin(DefaultAdmin):
     prepopulated_fields = {"name_slug": ("name",)}
 
-admin.site.register(Provider, MixedSlugAdmin)
-admin.site.register(ProviderUrl, DefaultAdmin)
-admin.site.register(Datacenter, DefaultAdmin)
+admin.site.register(Team, MixedSlugAdmin)
 
-admin.site.register(Country, TreeAdmin)
+# admin.site.register(ProviderUrl, DefaultAdmin)
+# admin.site.register(Country, TreeAdmin)

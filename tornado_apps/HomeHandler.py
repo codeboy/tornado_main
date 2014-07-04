@@ -12,11 +12,6 @@ class HomeHandler(DjangoBaseHandler):
         # context = self.context
         # context['status'] = "work in progress"
 
-        dj_request = self.get_django_request()
-
-        rTest = TestModel.objects.all()
-        context['list'] = rTest
-
         d_request = self.get_django_request()
 
         user_name = d_request.user.username

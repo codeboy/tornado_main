@@ -9,7 +9,7 @@ from django.template.defaultfilters import slugify
 from django_apps.utils import lang_stub as _
 # from django_apps import models_list as ml
 
-from django_apps.userman.models import MainUser
+from django.contrib.auth.models import User
 
 
 class Team(m.Model):
@@ -20,7 +20,7 @@ class Team(m.Model):
     name_slug = m.SlugField(max_length=250, verbose_name=_('slug name'),)
     logo = m.CharField(max_length=150, blank=True, null=True)
     description = m.TextField(blank=True, null=True)
-    owner = m.ForeignKey(MainUser)
+    owner = m.ForeignKey(User)
 
     datetime_created = m.DateTimeField(editable=False, default=datetime.datetime.now, verbose_name=_('creation date'),)
     datetime_modified = m.DateTimeField(editable=False, default=datetime.datetime.now, verbose_name=_('modified date'),)

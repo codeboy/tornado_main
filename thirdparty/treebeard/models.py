@@ -6,7 +6,7 @@ from django.db.models import Q
 from django.db import models, transaction
 from django.conf import settings
 
-from boss_tools.treebeard.exceptions import InvalidPosition, MissingNodeOrderBy
+from thirdparty.treebeard.exceptions import InvalidPosition, MissingNodeOrderBy
 
 
 class Node(models.Model):

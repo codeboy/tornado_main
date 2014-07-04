@@ -19,7 +19,7 @@ ROUTES = [
 
     (r'/send-sms', SenderHandler.SenderHandler),
 
-    (r'/page/main', AjaxPage.MainPage),
+    (r'/page/dashboard', AjaxPage.Dashboard),
     (r'/page/blank', AjaxPage.BlankPage),
-    (r'/page/blank_widget', AjaxPage.BlankWidgetPage),
+
 ]

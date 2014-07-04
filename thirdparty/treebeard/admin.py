@@ -6,10 +6,10 @@ from django.contrib.admin.views.main import ChangeList
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.utils.encoding import force_unicode
 from django.utils.translation import ugettext_lazy as _
-from boss_tools.treebeard.templatetags.admin_tree import check_empty_dict
-from boss_tools.treebeard.exceptions import (InvalidPosition, MissingNodeOrderBy,
+from thirdparty.treebeard.templatetags.admin_tree import check_empty_dict
+from thirdparty.treebeard.exceptions import (InvalidPosition, MissingNodeOrderBy,
         InvalidMoveToDescendant, PathOverflow)
-from boss_tools.treebeard.forms import MoveNodeForm
+from thirdparty.treebeard.forms import MoveNodeForm
 
 
 class TreeChangeList(ChangeList):
@@ -39,7 +39,7 @@ class TreeAdmin(admin.ModelAdmin):
         return TreeChangeList
 
     def queryset(self, request):
-        from boss_tools.treebeard.al_tree import AL_Node
+        from thirdparty.treebeard.al_tree import AL_Node
         if issubclass(self.model, AL_Node):
             # AL Trees return a list instead of a QuerySet for .get_tree()
             # So we're returning the regular .queryset cause we will use
@@ -49,7 +49,7 @@ class TreeAdmin(admin.ModelAdmin):
             return self.model.get_tree()
 
     def changelist_view(self, request, extra_context=None):
-        from boss_tools.treebeard.al_tree import AL_Node
+        from thirdparty.treebeard.al_tree import AL_Node
         if issubclass(self.model, AL_Node):
             # For AL trees, use the old admin display
             self.change_list_template = 'admin/tree_list.html'

@@ -9,7 +9,7 @@ from django.template.defaultfilters import slugify
 # from django.utils.translation import ugettext_lazy as _
 from django_apps.utils import lang_stub as _
 # from django_apps import models_list as ml
-from django_apps.userman.models import MainUser
+from django.contrib.auth.models import User
 from django_apps.teamapp.models import Team
 
 
@@ -60,7 +60,7 @@ class TeamGame(m.Model):
 
 class UserGame(m.Model):
     game = m.ForeignKey(Game)
-    user = m.ForeignKey(MainUser)
+    user = m.ForeignKey(User)
 
     nickname_name = m.CharField(max_length=120, blank=True, null=True)
 

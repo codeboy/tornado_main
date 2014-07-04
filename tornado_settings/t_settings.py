@@ -9,3 +9,5 @@ TEMPLATE_PATH = 'templates'
 DEBUG = True
 
 STATIC_PATH = os.path.join(os.path.dirname(__file__), '', '../static').replace('\\','/')
+
+from t_settings_local import *
