@@ -1,4 +1,4 @@
-Socialisation for MMO  gamers
+Connections for MMO  gamers
 ========================
 
 Work on `Tornado <http://www.tornadoweb.org>`_ with `Django <http://www.djangoproject.com/>`_
