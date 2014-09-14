@@ -1,7 +1,7 @@
-Tornado - Django project
+Socialisation for MMO  gamers
 ========================
 
-Project to connect `Tornado <http://www.tornadoweb.org>`_ with `Django <http://www.djangoproject.com/>`_
+Work on `Tornado <http://www.tornadoweb.org>`_ with `Django <http://www.djangoproject.com/>`_
 
 
 Using notes
